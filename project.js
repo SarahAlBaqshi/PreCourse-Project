@@ -19,7 +19,13 @@
  * sumOdds([3, 7, 8, 15, 2, 1, 13]) -> 39
  */
 function sumOdds(numbers) {
-  // Your code here
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] % 2 != 0) {
+      sum += numbers[i];
+    }
+  }
+  return sum;
 }
 
 /**
@@ -35,7 +41,15 @@ function sumOdds(numbers) {
  * Hint: Use string methods to make it case-insensitive
  */
 function characterCount(string, c) {
-  // Your code here
+  let sum = 0;
+  string = string.toUpperCase();
+  c = c.toUpperCase();
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] === c) {
+      sum += 1;
+    }
+  }
+  return sum;
 }
 
 /**
@@ -54,7 +68,15 @@ function characterCount(string, c) {
  * differences([11, 35, 52, 14, 56]) -> [24,  17, -38,  42]
  */
 function differences(numbers) {
-  // Your code here
+  let differenceArray = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (i + 1 === numbers.length) {
+      break;
+    } else {
+      differenceArray[i] = numbers[i + 1] - numbers[i];
+    }
+  }
+  return differenceArray;
 }
 
 /**
@@ -74,7 +96,20 @@ function differences(numbers) {
  * largestIncrement([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> 545
  */
 function largestIncrement(numbers) {
-  // Your code here
+  let largestInc = 0;
+  const diffArray = differences(numbers);
+  for (let i = 0; i < diffArray.length; i++) {
+    if (i + 1 === diffArray.length) {
+      break;
+    } else {
+      if (diffArray[i + 1] > diffArray[i]) {
+        largestInc = diffArray[i + 1];
+      } else {
+        largestInc = diffArray[i];
+      }
+    }
+  }
+  return largestInc;
 }
 
 /**
@@ -89,7 +124,14 @@ function largestIncrement(numbers) {
  * afterX([11, 35, 52, 14, 56, 601, 777, 888, 999], 52) -> [14, 56, 601, 777, 888, 999]
  */
 function afterX(numbers, x) {
-  // Your code here
+  let after = [];
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) {
+      after = numbers.slice(i + 1);
+      break;
+    }
+  }
+  return after;
 }
 
 /**
@@ -104,7 +146,7 @@ function afterX(numbers, x) {
  * Hint: Use string method .toUpperCase()
  */
 function abbreviate(firstName, lastName) {
-  // Your code here
+  return firstName[0].toUpperCase() + lastName[0].toUpperCase();
 }
 
 /**
@@ -118,7 +160,11 @@ function abbreviate(firstName, lastName) {
  *
  */
 function isUpperCase(string) {
-  // Your code here
+  if (string === string.toUpperCase()) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 /**
@@ -132,7 +178,12 @@ function isUpperCase(string) {
  *
  */
 function elementInArray(numbers, x) {
-  // Your code here
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) {
+      return true;
+    }
+  }
+  return false;
 }
 
 /**
@@ -146,7 +197,11 @@ function elementInArray(numbers, x) {
  *
  */
 function reverseString(string) {
-  // Your code here
+  let reversedString = "";
+  for (let i = string.length - 1; i > -1; i--) {
+    reversedString = reversedString + string[i];
+  }
+  return reversedString;
 }
 
 // console.log(sumOdds([3, 7, 8, 15, 2, 1, 13]));
